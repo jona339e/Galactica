@@ -1,6 +1,4 @@
-﻿using System.Drawing;
-
-namespace Galactica
+﻿namespace Galactica
 {
     internal sealed class Moon : Planet
     {

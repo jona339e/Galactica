@@ -1,7 +1,4 @@
-﻿using static Galactica.SpaceObject;
-using System.Xml.Linq;
-
-namespace Galactica
+﻿namespace Galactica
 {
 	class Program
 	{
