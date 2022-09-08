@@ -17,6 +17,9 @@
             Temperature = 5578;
         }
 
+
+        // Man kunne nemt lave nogle foreach loops her, hvor de forskellige resultater bliver vist, men jeg havde allerede lavet en
+        // ShowAll metode inde i planet, inden jeg lavede denne her.
         public void ShowPlanetList()
         {
             foreach (Planet planet in PlanetList)

@@ -17,8 +17,8 @@
         public Planet(string name)
         {
             this.Name = name;
-            position.x = rand.Next(20, 201);
-            position.y = rand.Next(20, 201);
+            position.x = rand.Next(150, 500);
+            position.y = rand.Next(150, 500);
             ID = i++;
             Diameter = rand.Next(2500000, 6000001);
             RotationPeriod = rand.Next(16, 14001);
@@ -28,18 +28,25 @@
 
         public double Distance(int x1, int y1)
         {
-            return Math.Sqrt((0 - x1) ^ 2 + (0 - y1) ^ 2) ;
+            return Math.Sqrt(Math.Pow((0 - x1), 2) + Math.Pow((0 - y1), 2)) ;
         }
 
         public virtual void ShowAll()
         {
-            Console.WriteLine($"Planet: {Name}\t\tPlanet Type: {PlanetType}\t\tAfstand til solen: {Distance(position.x, position.y)}");
+            Console.WriteLine($"Planet: {Name}\t\tPlanet Type: {PlanetType}\t\tDistance to the Sun: {Distance(position.x, position.y)}");
 
             foreach (Moon moon in MoonList)
             {
-                Console.WriteLine($"Måne: {moon.Name}\t\t\t\t\t\tAfstand til {moon.Orbiting.Name}: {moon.Distance(moon.position.x, moon.position.y, position.x, position.y)}");
+                Console.WriteLine($"Moon: {moon.Name}\t\t\t\t\t\tDistance to {moon.Orbiting.Name}: {moon.Distance(moon.position.x, moon.position.y, position.x, position.y)}");
             }
         }
-
+        public int ReturnPosX()
+        {
+            return position.x;
+        }
+        public int ReturnPosY()
+        {
+            return position.y;
+        }
     }
 }

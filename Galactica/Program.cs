@@ -17,14 +17,14 @@
             Planet neptune = new("Neptune");
 
             
-            Moon luna = new Moon("Luna");
-            Moon titan = new("Titan");
-            Moon phobes = new("Phobes");
-            Moon europe = new("Europe");
-            Moon deimos = new("Deimos");
-            Moon gynamedes = new("Gynamedes");
-            Moon io = new("Io");
-            Moon mimas = new("Mimas");
+            Moon luna = new Moon("Luna", earth);
+            Moon titan = new("Titan", saturn);
+            Moon phobes = new("Phobes", saturn);
+            Moon europe = new("Europe", jupiter);
+            Moon deimos = new("Deimos", mars);
+            Moon gynamedes = new("Gynamedes", jupiter);
+            Moon io = new("Io", jupiter);
+            Moon mimas = new("Mimas", saturn);
 
             luna.Orbiting = earth;
             titan.Orbiting = saturn;

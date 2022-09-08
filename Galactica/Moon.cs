@@ -8,21 +8,25 @@ namespace Galactica
         public Position position = new Position();
         public Planet Orbiting { get; set; }
 
-        public Moon(string name)
+        public Moon(string name, Planet planet = null)
         {
             this.Name = name;
-            position.x = rand.Next(20, 200001);
-            position.y = rand.Next(20, 200001);
+            if (planet != null)
+            {
+                position.x = planet.ReturnPosX() - rand.Next(2, 8);
+                position.y = planet.ReturnPosY() - rand.Next(10, 80);
+            }
+            
+            
             ID = i++;
             Diameter = rand.Next(2500000, 6000001);
             RotationPeriod = rand.Next(16, 14001);
             RevolutionPeriod = rand.Next(88, 60001);
-            PlanetType = (PlanetType)rand.Next(0, 4);
         }
 
         public double Distance(int x1, int y1, int x2, int y2)
         {
-            return Math.Sqrt((x2 - x1) ^ 2 + (y2 - y1) ^ 2);
+            return Math.Sqrt(Math.Pow((x1 - x2), 2 )+ Math.Pow((y1 - y2), 2));
         }
     }
 }
