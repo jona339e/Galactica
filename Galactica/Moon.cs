@@ -24,9 +24,9 @@ namespace Galactica
             RevolutionPeriod = rand.Next(88, 60001);
         }
 
-        public double Distance(int x1, int y1, int x2, int y2)
+        public double Distance(Planet planet)
         {
-            return Math.Sqrt(Math.Pow((x1 - x2), 2 )+ Math.Pow((y1 - y2), 2));
+            return Math.Sqrt(Math.Pow((planet.position.x - position.x), 2 ) + Math.Pow((planet.position.y - position.y), 2));
         }
     }
 }

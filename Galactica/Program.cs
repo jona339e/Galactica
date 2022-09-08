@@ -1,4 +1,7 @@
-﻿namespace Galactica
+﻿using static Galactica.SpaceObject;
+using System.Xml.Linq;
+
+namespace Galactica
 {
 	class Program
 	{
@@ -17,14 +20,14 @@
             Planet neptune = new("Neptune");
 
             
-            Moon luna = new Moon("Luna", earth);
-            Moon titan = new("Titan", saturn);
-            Moon phobes = new("Phobes", saturn);
-            Moon europe = new("Europe", jupiter);
-            Moon deimos = new("Deimos", mars);
+            Moon luna = new Moon("Luna     ", earth);
+            Moon titan = new("Titan    ", saturn);
+            Moon phobes = new("Phobes   ", saturn);
+            Moon europe = new("Europe   ", jupiter);
+            Moon deimos = new("Deimos   ", mars);
             Moon gynamedes = new("Gynamedes", jupiter);
-            Moon io = new("Io", jupiter);
-            Moon mimas = new("Mimas", saturn);
+            Moon io = new("Io       ", jupiter);
+            Moon mimas = new("Mimas    ", saturn);
 
             luna.Orbiting = earth;
             titan.Orbiting = saturn;
@@ -53,7 +56,15 @@
             jupiter.MoonList.Add(io);
             saturn.MoonList.Add(mimas);
 
-            sun.ShowPlanetList();
+            foreach (Planet planet in sun.PlanetList)
+            {
+                Console.WriteLine($"Planet:\t{planet.Name}\t\t\tPlanet Type: {planet.PlanetType}\t\tDistance to\tthe Sun: {planet.Distance(sun)}");
+                foreach (Moon moon in planet.MoonList)
+                {
+                    Console.WriteLine($"Moon:\t{moon.Name}\t\t\t\t\t\tDistance to\t{moon.Orbiting.Name}: {moon.Distance(planet)}");
+                }
+                Console.WriteLine("");
+            }
 
 
 		}

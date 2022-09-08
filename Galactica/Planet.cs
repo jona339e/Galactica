@@ -3,7 +3,7 @@
     internal class Planet : SpaceObject
     {
         Random rand = new();
-        Position position = new Position();
+        public Position position = new Position();
         public PlanetType PlanetType { get; set; }
         public int Diameter { get; set; }
         public int RotationPeriod { get; set; }
@@ -26,19 +26,9 @@
             PlanetType = (PlanetType)rand.Next(0, 4);
         }
 
-        public double Distance(int x1, int y1)
+        public double Distance(Star star)
         {
-            return Math.Sqrt(Math.Pow((0 - x1), 2) + Math.Pow((0 - y1), 2)) ;
-        }
-
-        public virtual void ShowAll()
-        {
-            Console.WriteLine($"Planet: {Name}\t\tPlanet Type: {PlanetType}\t\tDistance to the Sun: {Distance(position.x, position.y)}");
-
-            foreach (Moon moon in MoonList)
-            {
-                Console.WriteLine($"Moon: {moon.Name}\t\t\t\t\t\tDistance to {moon.Orbiting.Name}: {moon.Distance(moon.position.x, moon.position.y, position.x, position.y)}");
-            }
+            return Math.Sqrt(Math.Pow((star.SunPos.x - position.x), 2) + Math.Pow((star.SunPos.y - position.y), 2)) ;
         }
         public int ReturnPosX()
         {
